@@ -14,8 +14,9 @@ public class DigitPowerCalculatorTest {
 
     @Test
     public void testPowerNumber() throws Exception {
-        assertEquals(1634, DigitPowerCalculator.powerNumber(4, 1634));
-        assertEquals(8208, DigitPowerCalculator.powerNumber(4, 8208));
-        assertEquals(9474, DigitPowerCalculator.powerNumber(4, 9474));
+        int[] powers = DigitPowerCalculator.generatePowers(4);
+        assertEquals(1634, DigitPowerCalculator.powerNumber(powers, 1634));
+        assertEquals(8208, DigitPowerCalculator.powerNumber(powers, 8208));
+        assertEquals(9474, DigitPowerCalculator.powerNumber(powers, 9474));
     }
 }
