@@ -6,8 +6,8 @@ public class PalindromProductCalculator {
         final int start = limit/10;
         int maxProduct = 0;
         int currentProduct;
-        for(int leftFactor = start; leftFactor < limit; leftFactor++){
-            for(int rightFactor = leftFactor; rightFactor < limit; rightFactor++){
+        for(int leftFactor = limit-1; leftFactor >= start; leftFactor--){
+            for(int rightFactor = leftFactor; rightFactor >= start; rightFactor--){
                 currentProduct = leftFactor * rightFactor;
                 if(currentProduct > maxProduct && isPalindrome(currentProduct))
                     maxProduct = currentProduct;
