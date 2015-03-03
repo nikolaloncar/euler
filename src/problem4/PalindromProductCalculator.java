@@ -9,7 +9,8 @@ public class PalindromProductCalculator {
         for(int leftFactor = start; leftFactor < limit; leftFactor++){
             for(int rightFactor = leftFactor; rightFactor < limit; rightFactor++){
                 currentProduct = leftFactor * rightFactor;
-                if(isPalindrome(currentProduct) && currentProduct > maxProduct) maxProduct = currentProduct;
+                if(currentProduct > maxProduct && isPalindrome(currentProduct))
+                    maxProduct = currentProduct;
             }
         }
 
