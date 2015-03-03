@@ -1,6 +1,6 @@
 package problem4;
 
-public class PalindromProductCalculator {
+public class PalindromeProductCalculator {
     public static int calculateLargestPalindromeProduct(final int factorLength){
         final int limit = (int) Math.pow(10, factorLength);
         final int start = limit/10;
