@@ -14,10 +14,7 @@ public class SumSquareDifferenceCalculator {
     }
 
     public static long squareOfSum(final int limit){
-        long sum = 0;
-        for(int i = 1; i < limit+1; i++){
-            sum += i;
-        }
+        int sum = (limit*limit+limit)/2;
         return sum*sum;
     }
 }
