@@ -32,7 +32,11 @@ public class SeriesProductCalculatorTest {
     public void testLargestSeriesProduct() throws Exception {
         assertEquals(126, SeriesProductCalculator.largestSeriesProduct("7316", 4));
         assertEquals(162, SeriesProductCalculator.largestSeriesProduct("73169", 4));
-        //assertEquals(486, SeriesProductCalculator.largestSeriesProduct("731699", 4));
+        assertEquals(486, SeriesProductCalculator.largestSeriesProduct("731699", 4));
+        assertEquals(4374, SeriesProductCalculator.largestSeriesProduct("7316999", 4));
+        assertEquals(4374, SeriesProductCalculator.largestSeriesProduct("7316999000000", 4));
+        assertEquals(6561, SeriesProductCalculator.largestSeriesProduct("73169990000009999", 4));
         assertEquals(5832, SeriesProductCalculator.largestSeriesProduct(SERIES, 4));
+        System.out.println("Max series product of length [13] = " + SeriesProductCalculator.largestSeriesProduct(SERIES, 13));
     }
 }
