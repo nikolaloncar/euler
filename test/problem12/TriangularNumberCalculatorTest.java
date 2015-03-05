@@ -10,14 +10,8 @@ public class TriangularNumberCalculatorTest {
 
     @Test
     public void testNumberWithMinDivisorCount() throws Exception {
-        long sum = 0;
-        for(int i = 1; i < 100; i++){
-            sum += i;
-            System.out.println(i + ", " + sum + ", " + divisorCount(sum));
-        }
-
         assertEquals(28, numberWithMinDivisorCount(5));
-        System.out.println("Triangle number with at least [500] divisors = " + numberWithMinDivisorCount(200));
+        System.out.println("Triangle number with at least [500] divisors = " + numberWithMinDivisorCount(500));
     }
 
     @Test

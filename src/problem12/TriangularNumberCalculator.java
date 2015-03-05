@@ -2,9 +2,8 @@ package problem12;
 
 public class TriangularNumberCalculator {
     public static long numberWithMinDivisorCount(final int count){
-        if(count == 1) return 1;
-        long triangleNumber = 3;
-        int increment = 3;
+        long triangleNumber = 0;
+        int increment = 1;
         while(divisorCount(triangleNumber) < count){
             triangleNumber += increment;
             increment++;
@@ -13,10 +12,12 @@ public class TriangularNumberCalculator {
     }
 
     public static int divisorCount(final long number){
-        int divisorCount = 1;
-        for(int i = 1; i <= number/2; i++){
-            if(number % i == 0) divisorCount++;
+        int divisorCount = 0;
+        double sqrt = Math.sqrt(number);
+        for(int i = 1; i <= sqrt; i++){
+            if(number % i == 0) divisorCount += 2;
         }
+        if(sqrt*sqrt == number) divisorCount--;
         return divisorCount;
     }
 }
