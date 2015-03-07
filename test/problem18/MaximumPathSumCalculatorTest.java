@@ -2,8 +2,11 @@ package problem18;
 
 import org.junit.Test;
 
+import java.util.Arrays;
+
 import static org.junit.Assert.assertEquals;
 import static problem18.MaximumPathSumCalculator.maxPathSum;
+import static problem18.MaximumPathSumCalculator.maxPathSumOptimized;
 
 public class MaximumPathSumCalculatorTest {
 
@@ -36,5 +39,35 @@ public class MaximumPathSumCalculatorTest {
     public void testMaxPathSum() throws Exception {
         assertEquals(23, maxPathSum(TEST_TRIANGLE));
         System.out.println("Maximum path sum for [TRIANGLE] = " + maxPathSum(TRIANGLE));
+    }
+
+    @Test
+    public void testMaxPathSumOptimized() throws Exception {
+        int[][] localTriangle = new int[TEST_TRIANGLE.length][];
+        for(int i = 0; i < TEST_TRIANGLE.length; i++){
+            localTriangle[i] = Arrays.copyOf(TEST_TRIANGLE[i], TEST_TRIANGLE[i].length);
+        }
+        assertEquals(23, maxPathSumOptimized(localTriangle));
+    }
+
+    @Test
+    public void testPerformance() throws Exception {
+        int[][] localTriangle = new int[TRIANGLE.length][];
+        for(int i = 0; i < TRIANGLE.length; i++){
+            localTriangle[i] = Arrays.copyOf(TRIANGLE[i], TRIANGLE[i].length);
+        }
+
+        long before, after, nonOpt, opt;
+        before = System.nanoTime();
+        maxPathSum(TRIANGLE);
+        after = System.nanoTime();
+        nonOpt = after - before;
+        before = System.nanoTime();
+        maxPathSumOptimized(localTriangle);
+        after = System.nanoTime();
+        opt = after-before;
+
+        System.out.println("Non-optimized time = " + nonOpt / 1_000 + "ms");
+        System.out.println("Optimized time = " + opt / 1_000 + "ms");
     }
 }
