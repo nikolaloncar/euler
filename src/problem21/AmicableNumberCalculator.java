@@ -21,8 +21,12 @@ public class AmicableNumberCalculator {
 
     public static int divisorSum(final int number){
         int sum = 1;
-        for(int i = 2; i <= number/2; i++){
-            if(number % i == 0) sum += i;
+        double sqrt = Math.sqrt(number);
+        for(int i = 2; i <= sqrt; i++){
+            if(number % i == 0){
+                sum += i;
+                sum += number/i;
+            }
         }
         return sum;
     }
