@@ -2,21 +2,20 @@ package problem21;
 
 public class AmicableNumberCalculator {
     public static long sumOfAmicableNumbers(final int limit){
-        long sum = 0;
+        int[] divisorSums = new int[limit];
+        for(int i = 0; i < limit; i++){
+            divisorSums[i] = divisorSum(i+1);
+        }
+        int sum = 0;
         for(int a = 1; a <= limit; a++){
             for(int b = a+1; b <= limit; b++){
-                if(areAmicable(a, b)){
-                    sum += a + b;
+                if(divisorSums[a-1] == b && divisorSums[b-1] == a){
+                    sum += a;
+                    sum += b;
                 }
             }
         }
         return sum;
-    }
-
-    public static boolean areAmicable(final int a, final int b){
-        return a != b
-                && divisorSum(a) == b
-                && divisorSum(b) == a;
     }
 
     public static int divisorSum(final int number){
