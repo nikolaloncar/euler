@@ -15,7 +15,8 @@ public class PrimeCalculator {
     }
 
     public static boolean isPrime(final int number){
-        //Check for even numbers omitted because we don't get even numbers here.
+        if(number == 1) return false;
+        if(number > 2 && (number & 1) == 0) return false;
         for(int i = 3; i * i <= number; i += 2){
             if(number % i == 0) return false;
         }
