@@ -24,25 +24,30 @@ public class NumberLetterCounter {
     public static int letterCount(final int number){
         if(number == 0) return 4;
 
+        int letterCount = 0;
+
         //Thousands
         int thousands = ONES[number / 1000];
         if(thousands > 0) thousands += 8;
+        letterCount += thousands;
 
         //Hundreds
         int hundreds = ONES[(number % 1000) / 100];
         if(hundreds > 0) hundreds += 7;
-
-        int letterCount = 0;
-        letterCount += thousands;
         letterCount += hundreds;
+
+        //Check if "AND" is needed
         int n = number % 100;
         if(letterCount > 0 && n > 0) letterCount += 3;
+
+        //Tens and ones
         if(10 < n && n < 20) {
             letterCount += TEENS[n%10];
         } else {
             letterCount += TENS[(number % 100) / 10];
             letterCount += ONES[number % 10];
         }
+
         return letterCount;
     }
 
